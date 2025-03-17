@@ -1,0 +1,122 @@
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+    <style>
+        /* Apply modern font */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Orbitron:wght@400;500&display=swap');
+
+        /* General body setup */
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            background-size: 400% 400%;
+            animation: gradientAnimation 12s ease infinite;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            height: 100vh; /* Adjust height to avoid unnecessary scroll */
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Futuristic Info Box */
+        .info-box {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 650px;
+            margin: 80px 20px;
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transform: scale(1);
+            opacity: 0;
+            animation: fadeIn 1.8s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .info-box h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 32px;
+            color: #00f9ff;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .info-box p {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #d9d9d9;
+            letter-spacing: 0.5px;
+        }
+
+        /* Button Styles */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 150px;
+        }
+
+        .button {
+            padding: 15px 40px;
+            font-size: 20px;
+            color: #fff;
+            background-color: #00f9ff;
+            border: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0, 255, 255, 0.6);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #ff6ec7;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 255, 255, 0.8);
+        }
+
+        /* Button Container for game and homepage */
+        .button-container {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Futuristic Info Box -->
+    <div class="info-box">
+        <h2>Art of Flow in Design and Tradition</h2>
+        <p>In Japanese culture, the notion of <strong>"smooth motion"</strong> and <strong>continuous flow</strong> is woven into the fabric of traditions like <strong>ikebana</strong> (flower arranging) and <strong>the tea ceremony (sado)</strong>, where elegance, fluidity, and the seamless transition of one gesture to the next are cherished. This graceful flow reflects the essence of <strong>wabi-sabi</strong>, the Japanese aesthetic that finds beauty in imperfection, the fleeting, and the natural rhythm of time and movement.
+
+            In the realm of modern design and engineering, this principle is beautifully carried forward, guiding the creation of products and processes that embrace efficiency, minimalism, and intuitive harmony, crafting experiences that are as seamless and uninterrupted as the movement of nature itself.</p>
+    </div>
+
+    <!-- Buttons for Homepage and Game -->
+    <div class="button-container">
+        <button class="button" onclick="window.location.href='index.html'">Go to Homepage</button>
+        <button class="button" onclick="window.location.href='page4.html'">𓆝 𓆟 𓆞 𓆝 𓆟</button>
+    </div>
+
+    <main>
+        <script src="sketch3.js"></script>
+    </main>
+</body>
+</html>

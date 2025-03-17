@@ -1,0 +1,138 @@
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        
+        body {
+            background: linear-gradient(135deg, #001f3f, #1a1a2e);
+            color: #ffffff;
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        /* Button Styling */
+        /* Button Styling */
+        .cheese-button {
+        position: absolute;
+        bottom: 20px; /* Moves the button to the bottom */
+        left: 50%;    /* Centers the button horizontally */
+        transform: translateX(-50%); /* Adjusts the position to center it exactly */
+        padding: 15px 30px;
+        font-size: 18px;
+        background: linear-gradient(90deg, #00feba, #5b548a);
+        border: none;
+        border-radius: 12px;
+        color: white;
+        font-weight: bold;
+        font-family: 'Orbitron', sans-serif;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 255, 255, 0.5);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        animation: zoomInOut 3s infinite; /* Add the animation */
+    }
+    
+    .cheese-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 25px rgba(0, 255, 255, 0.7);
+    }
+    
+    .cheese-button:active {
+        transform: scale(1.05);
+        box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+    }
+    
+    /* Animation for zooming in and out */
+    @keyframes zoomInOut {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.2);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    /* Futuristic Design Box */
+    .info-box {
+        position: absolute;
+        top: 20px;  /* Keeps the box at the top */
+        left: 20px; /* Moves the box to the left */
+        width: 320px;
+        background: rgba(255, 0, 255, 0.3);
+        color: #00ffff;
+        font-family: 'Orbitron', sans-serif;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+        text-align: center;
+        font-size: 16px;
+        backdrop-filter: blur(10px);
+    }
+    .info-box h2 {
+        color: #ffffff;
+        margin-bottom: 10px;
+        font-size: 18px;
+        text-transform: uppercase;
+    }
+
+        /* Pop-up Guide Styling */
+        .popup-guide {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 255, 255, 0.6);
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+            text-align: center;
+            font-size: 18px;
+            display: none; /* Hidden by default */
+        }
+    </style>
+</head>
+<body>
+    <!-- Interactive Say Cheese button -->
+    <button class="cheese-button" onclick="window.location.href='page2.html'">⋙</button>
+    
+    <!-- Futuristic Info Box -->
+    <div class="info-box">
+        <h2>Kumihimo: The Art of Braiding</h2>
+        <p>Discover the ancient Japanese craft of Kumihimo, where colorful threads are intricately braided into beautiful cords. 
+        Once used for samurai armor, it’s now a popular art in fashion and décor. Join a workshop and create your own kumihimo masterpiece during your visit!</p>
+    </div>
+
+    <!-- Pop-up Guide -->
+    <div class="popup-guide" id="popup-guide">
+        Try dragging your mouse across the canvas and see what happens!
+    </div>
+    
+    <main>
+        <script src="sketch1.js"></script>
+        <script>
+            // Show the pop-up guide for 3 seconds and then hide it
+            window.onload = function() {
+                setTimeout(function() {
+                    document.getElementById('popup-guide').style.display = 'block';
+                    setTimeout(function() {
+                        document.getElementById('popup-guide').style.display = 'none';
+                    }, 3000); // Hide after 3 seconds
+                }, 1000); // Show after 1 second
+            };
+        </script>
+    </main>
+</body>
+</html>

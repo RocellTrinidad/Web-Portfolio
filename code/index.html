@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage</title>
+
+  <!-- p5.js Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Static Text with Animation */
+    .ramen-text {
+      font-size: 48px;
+      font-weight: bold;
+      font-family: 'Orbitron', sans-serif;
+      position: absolute;
+      top: 40%;  /* Adjusted to move text lower */
+      animation: pulse 2s infinite, glow 1.5s ease-in-out infinite alternate;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Text below the main text */
+    .click-text {
+      font-size: 18px;
+      font-family: 'Orbitron', sans-serif;
+      position: absolute;
+      top: 50%;  /* Positioned below the main text */
+      animation: glow 1.5s ease-in-out infinite alternate;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    /* Pulse Animation */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    /* Glowing effect */
+    @keyframes glow {
+      0% { text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffaa00; }
+      100% { text-shadow: 0 0 20px #ffcc00, 0 0 30px #ffaa00; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Animated Text -->
+  <div class="ramen-text" onclick="window.location.href='page1.html'">𓎩</div>
+
+  <!-- Click Here Text -->
+  <div class="click-text" onclick="window.location.href='page1.html'">click here to explore...</div>
+
+  <!-- Load sketch.js as the homepage -->
+  <script src="sketch.js"></script>
+
+</body>
+</html>

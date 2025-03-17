@@ -1,0 +1,154 @@
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+    <style>
+        /* Apply modern font */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Orbitron:wght@400;500&display=swap');
+
+        /* General body setup */
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            background-size: 400% 400%;
+            animation: gradientAnimation 12s ease infinite;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            height: 200vh; /* Extend the page to make scrolling necessary */
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Scroll Down Text Animation */
+        .scroll-down {
+            position: fixed;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 30px;
+            color: #00f9ff;
+            animation: scrollTextAnimation 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes scrollTextAnimation {
+            0% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+            100% { transform: translateX(-50%) translateY(0); }
+        }
+
+        /* Futuristic Info Box */
+        .info-box {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 650px;
+            margin: 80px auto;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transform: scale(1);
+            opacity: 0;
+            animation: fadeIn 1.8s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .info-box h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 32px;
+            color: #00f9ff;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .info-box p {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #d9d9d9;
+            letter-spacing: 0.5px;
+        }
+
+        /* Additional hover effects for interactive elements */
+        .info-box:hover {
+            box-shadow: 0 10px 40px rgba(0, 255, 255, 0.6);
+            transform: scale(1.03);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .info-box h2:hover {
+            color: #ff6ec7;
+        }
+
+        /* Button at the bottom with new color */
+        .bottom-button {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 30px;
+            background-color: #ff6ec7; /* New color */
+            color: white;
+            font-size: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .bottom-button:hover {
+            background-color: #00f9ff; /* Hover color change */
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Scroll Down Animation Text -->
+    <div class="scroll-down" id="scroll-down">
+        Scroll Down
+    </div>
+
+    <!-- Futuristic Info Box -->
+    <div class="info-box">
+        <h2>Harmony in Reflection</h2>
+        <p>In Japan, there’s a cultural belief that <strong>ovals</strong> are symbolic of harmony and balance, which is why mirrors are often oval-shaped in traditional settings. The idea is that an oval mirror reflects the viewer in a way that feels softer and more harmonious compared to other shapes. It's said that oval mirrors offer a gentle way to "see oneself," aligning with Japan’s focus on balance and subtle beauty in design. This belief also ties into how reflection and self-awareness are viewed in Japanese culture—where one’s image is considered an ongoing reflection of inner peace and grace.</p>
+    </div>
+
+    <!-- Button that appears at the bottom -->
+    <a href="page3.html">
+        <button class="bottom-button" id="bottom-button">⋙</button>
+    </a>
+
+    <main>
+        <script src="sketch2.js"></script>
+        <script>
+            // Function to handle button visibility and hide "Scroll Down" text when reaching the bottom
+            window.onscroll = function() {
+                var scrollPosition = window.scrollY + window.innerHeight;
+                var pageHeight = document.documentElement.scrollHeight;
+
+                // Show the button when user reaches the bottom of the page
+                if (scrollPosition >= pageHeight) {
+                    document.getElementById('bottom-button').style.display = 'block';
+                    document.getElementById('scroll-down').style.display = 'none';  // Hide the "Scroll Down" text
+                } else {
+                    document.getElementById('bottom-button').style.display = 'none';
+                    document.getElementById('scroll-down').style.display = 'block';  // Show the "Scroll Down" text
+                }
+            };
+        </script>
+    </main>
+</body>
+</html>
